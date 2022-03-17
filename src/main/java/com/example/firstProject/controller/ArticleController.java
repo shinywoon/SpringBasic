@@ -40,7 +40,10 @@ public class ArticleController {
         Article saved = articleRepository.save(article);
         //System.out.println(saved.toString());
         log.info(saved.toString());
-        return "/articles/new";
+
+
+        //redirect하기
+        return "redirect:/articles/" + saved.getId();
     }
 
     @GetMapping("/articles/{id}")
@@ -73,6 +76,14 @@ public class ArticleController {
         //3. 뷰페이지 설정
         return "articles/index";
     }
+    @GetMapping("/articles/{id}/edit")
+    public String edit(@PathVariable Long id,Model model){
 
+        Article articleEntity = articleRepository.findById(id).orElse(null);
+
+        model.addAttribute("article",articleEntity);
+
+        return "articles/edit1";
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.example.firstProject.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor // 디폴트 생성자를 추가 하는 어노테이션
 @ToString
+@Getter
 public class Article {
 
     @Id //
